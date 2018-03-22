@@ -1,4 +1,3 @@
-# sudoku
 #include<stdio.h>
 int puzz[9][9];
 
@@ -49,9 +48,12 @@ void solve(int row,int col)
 			solve(row+1,0);
 	}
 	else
-	{	for (count=0,i=0;i<9;i++)
+	{	count=0;
+		for (i=0;i<9;i++)
 		{	if((rows(i,row)&&columns(i,col)&&block(i,row,col))==1)
-				count=count+1;
+			{	count=count+1;
+				printf("[%d][%d]:%d*%d,",row,col,i,count);
+			}
 		}
 		if(count==1)
 		{	puzz[row][col]=i;					// assign n=x
